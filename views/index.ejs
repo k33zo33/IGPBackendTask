@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Notifications</title>
+     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #065f46; /* Change the background color */
+            color: #fff; /* Change the text color */
+        }
+
+        h1 {
+            text-align: center;
+            padding: 10px;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: #fff; /* Change the table background color */
+            color: #000; /* Change the table text color */
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #064e3b; /* Change the header background color */
+            color: #fff; /* Change the header text color */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        a {
+            text-decoration: none;
+            color: #065f46; /* Change the link color */
+        }
+        .logout-button {
+        color: #fff; /* Text color */
+        background-color: #e74c3c; /* Background color */
+        padding: 10px 20px; /* Padding */
+        border-radius: 3px; /* Rounded corners */
+        text-decoration: none; /* Remove underlines for links */
+    }
+
+    .logout-button:hover {
+        background-color: #c0392b; /* Background color on hover */
+    }
+    </style> 
+</head>
+<body>
+    <h1>Your Notifications</h1>
+    <div style="text-align: right; margin-right: 20px;">
+        <a href="/logout" class="logout-button">Logout</a>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Body</th>
+                <th>Timestamp</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% notification.forEach(notification => { %>
+                <tr>
+                    <td><%= notification.title %></td>
+                    <td><%= notification.body %></td>
+                    <td><%= notification.timestamp %></td>
+                    <td>
+                        <a href="/notification/read/<%= notification._id %>">Read</a> |
+                        <a href="/notification/delete/<%= notification._id %>">Delete</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body> 
+</html>

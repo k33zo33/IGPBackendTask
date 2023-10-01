@@ -1,0 +1,57 @@
+POST http://localhost:5000/user/signup
+Content-Type: application/json
+
+{
+    "name":"Kizo Manjaca",
+    "email":"kizomanjaca@gmail.com",
+    "password": "Jasamzoki313",
+    "dateOfBirth": "06-20-1993"
+}
+
+
+
+###
+
+POST http://localhost:5000/user/signin
+Content-Type: application/json
+
+{  
+    "email":"mladikizomanjaca@gmail.com",
+    "password": "test1234"
+}
+
+
+###
+
+POST http://localhost:5000/user/signup
+Content-Type: application/json
+
+{
+    "name": "Test User" ,
+    "email": "mladikizomanjaca@gmail.com",
+    "dateOfBirth": "06-20-1993",
+    "password": "test1234" 
+
+}
+
+
+###
+POST  http://localhost:5000/notification/send
+Content-Type: application/json
+
+{
+    "userId": "6511dd1380e82a1db12d6199",
+    "title": "Naslov",
+    "body": "Neki tekst"
+
+}
+
+
+###
+GET http://localhost:5000/notification/get/6511dd1380e82a1db12d6199
+
+###
+GET http://localhost:5000/notification/read/6512efcb8d71cc337770fd3e
+
+###
+GET http://localhost:5000/user/signout
